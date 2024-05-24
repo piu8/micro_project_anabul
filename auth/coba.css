@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: poppins;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+main {
+  display: flex;
+}
+
+.left {
+  padding: 10px;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, #0c3d55, #89bbd5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding-top: 50px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero .logo {
+  width: 100px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  margin-bottom: 20px;
+  line-height: 1;
+  font-size: 30px;
+  text-align: center;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 400px;
+  text-align: center;
+  margin-bottom: -20px;
+}
+
+.hero .bg {
+  width: 500px;
+}
+
+/* Login */
+.right {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.login h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #0c3d55;
+  font-size: 45px;
+  font-weight: 300;
+}
+
+.login a {
+  color: #0c3d55;
+  margin-left: 5px;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login label {
+  margin-bottom: 15px;
+  color: #0c3d55;
+}
+
+form input {
+  width: 300px;
+  padding: 10px 30px;
+  border: 1px solid #518caa;
+  box-shadow: 0 1px 5px #518caa;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  margin-top: 8px;
+  outline: none;
+}
+
+form .input-icon {
+  position: relative;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 7px;
+  top: 17px;
+  padding: 0 5px;
+  color: #0c3d55;
+}
+
+input::placeholder {
+  font-size: 14px;
+}
+
+form p {
+  text-align: center;
+}
+
+.login p {
+  color: #0c3d55;
+  font-size: 17px;
+}
+
+.login button {
+  width: 300px;
+  padding: 10px;
+  border: none;
+  background-color: #0c3d55;
+  border-radius: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+.login button a {
+  color: #d9d9d9;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.05s;
+}
+.login button a:hover {
+  color: #fff;
+}
+.right p {
+  margin-top: 30px;
+  text-align: center;
+  color: #0c3d55;
+}
+.right p a {
+  text-decoration: none;
+  transition: text-decoration 0.05s;
+  color: #0c3d55;
+}
+.right p a:hover {
+  text-decoration: underline;
+}

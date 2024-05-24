@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Anabul</title>
+</head>
+
+<body>
+    <!-- Memuat file navbar -->
+    <section id="beranda"></section>
+    <div id="navbar-placeholder"></div>
+    <div class="container">
+        <div class="grid-container1">
+            <div class="grid-item1"><img src="assets/img/gambar1.jpeg" alt="gambar1"></div>
+            <div class="grid-item2">
+                <div class="content-text">
+                    <h1 style="font-size: 40px;">Adopsi Cinta,</h1>
+                    <h1 style="margin-bottom: 30px;">Adopsi Hewan Peliharaan</h1>
+                    <p>Situs adopsi hewan peliharaan kami adalah platform online penghubung
+                        orang-orang yang tertarik untuk mengadopsi hewan peliharaan dengan tempat
+                        penampungan hewan dan organisasi penyelamat di seluruh Indonesia. Kami
+                        memberikan informasi rinci tentang masing-masing dari mereka, termasuk riwayat
+                        kesehatan dan perilaku mereka, untuk membantu pengguna membuat keputusan
+                        terbaik.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="filter-option">
+                <label for="ras" class="menu">Ras</label>
+                <select class="filter-select" id="ras">
+                    <option value="" disabled="disabled" selected="selected">Pilih Ras</option>
+                    <option value="#">Kucing Anggora</option>
+                    <option value="#">Kucing Persia</option>
+                    <option value="#">Kucing Scottish Fold</option>
+                    <option value="#">Anjing Pomerania</option>
+                    <option value="#">Anjing Bichon Frise</option>
+                    <option value="#">Other</option>
+                </select>
+            </div>
+
+            <div class="filter-option">
+                <label for="jk" class="menu">Jenis Kelamin</label>
+                <select class="filter-select" id="jk">
+                    <option value="" disabled="disabled" selected="selected">Pilih Jenis Kelamin</option>
+                    <option value="#">Jantan</option>
+                    <option value="#">Betina</option>
+                </select>
+            </div>
+
+            <div class="filter-option">
+                <label for="usia" class="menu">Usia</label>
+                <select class="filter-select" id="usia">
+                    <option value="" disabled="disabled" selected="selected">Pilih Usia</option>
+                    <option value="#">5 Bulan</option>
+                    <option value="#">6 Bulan</option>
+                    <option value="#">7 Bulan</option>
+                    <option value="#">8 Bulan</option>
+                    <option value="#">9 Bulan</option>
+                    <option value="#">Other</option>
+                </select>
+            </div>
+
+            <button onclick="myFunction()" style="background: none; border: none; padding: 0;">
+                <svg width="55" height="55" viewbox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" style="margin-left: 50px;">
+                    <rect x="0.5" y="0.5" width="54" height="54" rx="22.5" fill="white" stroke="#0C3D55" />
+                    <rect x="2" y="5" width="51" height="45" fill="url(#pattern0)" />
+                    <defs>
+                        <pattern id="pattern0" patterncontentunits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_210_624"
+                                transform="matrix(0.00919118 0 0 0.0104167 0.0588235 0)" />
+                        </pattern>
+                        <image id="image0_210_624" width="96" height="96"
+                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADEUlEQVR4nO3cO2sUURQH8Gsjm71nEjBYiOADEcFWlGT33F01FooaNHvPprAIKPoBbGz9EDYWgo9YKVr6BRQbHyBiLUJAfHfxEY3cZJUISWYSd/bMzv3/YKqE7Nn82Xtmz8xcYwAAAAAAAAAAAAAAAACgT1iWi8nYqWHtOqJFTh4Q+zcDjfZ+7VriDcDJPLGfJSfntOuJNwDXOdhfMXtlo3Zd8QbgZN46/7DqTm/Rri3aAGjh8DNJQ0a164s4AJknlq/Ecl67xngDcH+WJLmKvqAYAC0eTyp12ZZXHdGi7AGET8I7W28d1K452gBosS/8IJZL2nXHG4D7e9w0IzKgXX+ZA3idviT5xwMjslX7PZQygGq9dSwsNeT8z9S+0Ggf0n4f5QuA5Wj4eVJvn7QsX9AXlAIIkprssexfpfcFfwt9IYcAguHaeGKd3Es/S/JPK6MT29daR7QoYwAdGzL1BfbvrZPDRtM6T+0Kc1SXD2BB4uS4Zflc6L5Q5gCCpDGxm5y8TF+SZNrsO1E1vVb2AILNTSHr5E6GEJ4NNSd3mF6KIYB/+gLLXGpf4NaY6ZWIAlgQft86+ViYvhBbAEEYV4exderfZ7mde19Y6cVN2TWnKsT+eoaQnw852ZlbHdEG0EEsF8j576uFYFk+WG4fMXmIPYCAXLtB7N+mLEdzufQFBLAojCXCeCJDX5ju6hwJASzRnKpY569l6gvd+r6AAFbqC/IttS90Y46EANbbmLs0yEMAS2AJ0oMmrAinoYrwRUxzFOHkRk9POZejPUwjhWHcYG1yF7G8KPQwrtzjaP8p5R+PcTR1PwBckCHNS5Ls72ZYcnBJkjQvymvcxFvmT0DSD7el9Asq641ZZQtg04Ezg9b5++lLDm5NXBPcnFv029MbMo7b0xUCSEKjdXKZnPxadb3HAxr/B48oKSM8pNdnATDO7xUDwAYeagFYlkfYwiYHhM06dBG2qylqAH4mqbdHlMsrP8KWZQULgLFpn04A7GeTupzt7auDwcatyiy2LgYAAAAAAAAAAAAAAAAwxfIbafMkPsYfXrYAAAAASUVORK5CYII=" />
+                    </defs>
+                </svg>
+            </button>
+
+        </div>
+        <div class="flex-container2">
+            <div>
+                <img src="assets/img/Animal Shelter.png" alt="icon">
+                <div>
+                    <a class="text1">Ingin menawarkan hewan peliharaan kamu?</a>
+                    <p></p>
+                    <a class="text2">Kamu juga bisa memasarkan kucing kamu ke website ini untuk diadopsi</a>
+                </div>
+                <div style="margin-left: auto;">
+                    <button>
+                        <a href="#">Tawarkan Adopsi</a>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <section id="adopsi"></section>
+    <div class="container2">
+        Hewan peliharaan populer
+    </div>
+    <div class="grid-container2">
+        <figure class="grid-item item1">
+            <img src="assets/img/anggora.png" alt="">
+            <figcaption>Anggora</figcaption>
+        </figure>
+        <figure class="grid-item item2">
+            <img src="assets/img/pomerania.png" alt="">
+            <figcaption>Pomerania</figcaption>
+        </figure>
+        <figure class="grid-item item3">
+            <img src="assets/img/scothis.JPG" alt="">
+            <figcaption>Scottish Fold</figcaption>
+        </figure>
+        <figure class="grid-item item4">
+            <img src="assets/img/bichon.png" alt="">
+            <figcaption>Bichon Frise</figcaption>
+        </figure>
+        <figure class="grid-item item5">
+            <img src="assets/img/poodle.JPG" alt="">
+            <figcaption>Poodle</figcaption>
+        </figure>
+        <figure class="grid-item item6">
+            <img src="assets/img/persia.JPG" alt="">
+            <figcaption>Persia</figcaption>
+        </figure>
+    </div>
+    
+        <div class="container2">
+            Pilihan teratas untuk diadopsi
+        </div>
+        <div class="flex-container3">
+            <div class="flex-container3-frame">
+                <div class="flex-container3-content">
+                    <figure>
+                        <img src="assets/img/poodle.JPG" alt="">
+                        <figcaption>Adopsi</figcaption> <!-- Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket">Anjing Poodle<p>Pusat Adopsi</p>
+                        <p><button>Adopsi Sekarang <svg width="32" height="35" viewBox="0 0 32 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="32" height="35" fill="url(#pattern0)" />
+                                    <defs>
+                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1"
+                                            height="1">
+                                            <use xlink:href="#image0_510_172"
+                                                transform="matrix(0.0104167 0 0 0.00952381 0 0.0428571)" />
+                                        </pattern>
+                                        <image id="image0_510_172" width="96" height="96"
+                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADEUlEQVR4nO3cO2sUURQH8Gsjm71nEjBYiOADEcFWlGT33F01FooaNHvPprAIKPoBbGz9EDYWgo9YKVr6BRQbHyBiLUJAfHfxEY3cZJUISWYSd/bMzv3/YKqE7Nn82Xtmz8xcYwAAAAAAAAAAAAAAAACgT1iWi8nYqWHtOqJFTh4Q+zcDjfZ+7VriDcDJPLGfJSfntOuJNwDXOdhfMXtlo3Zd8QbgZN46/7DqTm/Rri3aAGjh8DNJQ0a164s4AJknlq/Ecl67xngDcH+WJLmKvqAYAC0eTyp12ZZXHdGi7AGET8I7W28d1K452gBosS/8IJZL2nXHG4D7e9w0IzKgXX+ZA3idviT5xwMjslX7PZQygGq9dSwsNeT8z9S+0Ggf0n4f5QuA5Wj4eVJvn7QsX9AXlAIIkprssexfpfcFfwt9IYcAguHaeGKd3Es/S/JPK6MT29daR7QoYwAdGzL1BfbvrZPDRtM6T+0Kc1SXD2BB4uS4Zflc6L5Q5gCCpDGxm5y8TF+SZNrsO1E1vVb2AILNTSHr5E6GEJ4NNSd3mF6KIYB/+gLLXGpf4NaY6ZWIAlgQft86+ViYvhBbAEEYV4exderfZ7mde19Y6cVN2TWnKsT+eoaQnw852ZlbHdEG0EEsF8j576uFYFk+WG4fMXmIPYCAXLtB7N+mLEdzufQFBLAojCXCeCJDX5ju6hwJASzRnKpY569l6gvd+r6AAFbqC/IttS90Y46EANbbmLs0yEMAS2AJ0oMmrAinoYrwRUxzFOHkRk9POZejPUwjhWHcYG1yF7G8KPQwrtzjaP8p5R+PcTR1PwBckCHNS5Ls72ZYcnBJkjQvymvcxFvmT0DSD7el9Asq641ZZQtg04Ezg9b5++lLDm5NXBPcnFv029MbMo7b0xUCSEKjdXKZnPxadb3HAxr/B48oKSM8pNdnATDO7xUDwAYeagFYlkfYwiYHhM06dBG2qylqAH4mqbdHlMsrP8KWZQULgLFpn04A7GeTupzt7auDwcatyiy2LgYAAAAAAAAAAAAAAAAwxfIbafMkPsYfXrYAAAAASUVORK5CYII=" />
+                                    </defs>
+                                </svg>
+                            </button></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex-container3-frame">
+                <div class="flex-container3-content">
+                    <figure>
+                        <img src="assets/img/anggora.png" alt="">
+                        <figcaption>Adopsi</figcaption> <!-- Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket">Kucing Anggora<p>Pusat Adopsi</p>
+                        <p><button>Adopsi Sekarang <svg width="32" height="35" viewBox="0 0 32 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="32" height="35" fill="url(#pattern0)" />
+                                    <defs>
+                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1"
+                                            height="1">
+                                            <use xlink:href="#image0_510_172"
+                                                transform="matrix(0.0104167 0 0 0.00952381 0 0.0428571)" />
+                                        </pattern>
+                                        <image id="image0_510_172" width="96" height="96"
+                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADEUlEQVR4nO3cO2sUURQH8Gsjm71nEjBYiOADEcFWlGT33F01FooaNHvPprAIKPoBbGz9EDYWgo9YKVr6BRQbHyBiLUJAfHfxEY3cZJUISWYSd/bMzv3/YKqE7Nn82Xtmz8xcYwAAAAAAAAAAAAAAAACgT1iWi8nYqWHtOqJFTh4Q+zcDjfZ+7VriDcDJPLGfJSfntOuJNwDXOdhfMXtlo3Zd8QbgZN46/7DqTm/Rri3aAGjh8DNJQ0a164s4AJknlq/Ecl67xngDcH+WJLmKvqAYAC0eTyp12ZZXHdGi7AGET8I7W28d1K452gBosS/8IJZL2nXHG4D7e9w0IzKgXX+ZA3idviT5xwMjslX7PZQygGq9dSwsNeT8z9S+0Ggf0n4f5QuA5Wj4eVJvn7QsX9AXlAIIkprssexfpfcFfwt9IYcAguHaeGKd3Es/S/JPK6MT29daR7QoYwAdGzL1BfbvrZPDRtM6T+0Kc1SXD2BB4uS4Zflc6L5Q5gCCpDGxm5y8TF+SZNrsO1E1vVb2AILNTSHr5E6GEJ4NNSd3mF6KIYB/+gLLXGpf4NaY6ZWIAlgQft86+ViYvhBbAEEYV4exderfZ7mde19Y6cVN2TWnKsT+eoaQnw852ZlbHdEG0EEsF8j576uFYFk+WG4fMXmIPYCAXLtB7N+mLEdzufQFBLAojCXCeCJDX5ju6hwJASzRnKpY569l6gvd+r6AAFbqC/IttS90Y46EANbbmLs0yEMAS2AJ0oMmrAinoYrwRUxzFOHkRk9POZejPUwjhWHcYG1yF7G8KPQwrtzjaP8p5R+PcTR1PwBckCHNS5Ls72ZYcnBJkjQvymvcxFvmT0DSD7el9Asq641ZZQtg04Ezg9b5++lLDm5NXBPcnFv029MbMo7b0xUCSEKjdXKZnPxadb3HAxr/B48oKSM8pNdnATDO7xUDwAYeagFYlkfYwiYHhM06dBG2qylqAH4mqbdHlMsrP8KWZQULgLFpn04A7GeTupzt7auDwcatyiy2LgYAAAAAAAAAAAAAAAAwxfIbafMkPsYfXrYAAAAASUVORK5CYII=" />
+                                    </defs>
+                                </svg>
+                            </button></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex-container3-frame">
+                <div class="flex-container3-content">
+                    <figure>
+                        <img src="assets/img/maltese.jpg" alt="">
+                        <figcaption>Adopsi</figcaption> <!-- Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket">Anjing Maltese<p>Pemilik Sebelumnya</p>
+                        <p><button>Adopsi Sekarang <svg width="32" height="35" viewBox="0 0 32 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="32" height="35" fill="url(#pattern0)" />
+                                    <defs>
+                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1"
+                                            height="1">
+                                            <use xlink:href="#image0_510_172"
+                                                transform="matrix(0.0104167 0 0 0.00952381 0 0.0428571)" />
+                                        </pattern>
+                                        <image id="image0_510_172" width="96" height="96"
+                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADEUlEQVR4nO3cO2sUURQH8Gsjm71nEjBYiOADEcFWlGT33F01FooaNHvPprAIKPoBbGz9EDYWgo9YKVr6BRQbHyBiLUJAfHfxEY3cZJUISWYSd/bMzv3/YKqE7Nn82Xtmz8xcYwAAAAAAAAAAAAAAAACgT1iWi8nYqWHtOqJFTh4Q+zcDjfZ+7VriDcDJPLGfJSfntOuJNwDXOdhfMXtlo3Zd8QbgZN46/7DqTm/Rri3aAGjh8DNJQ0a164s4AJknlq/Ecl67xngDcH+WJLmKvqAYAC0eTyp12ZZXHdGi7AGET8I7W28d1K452gBosS/8IJZL2nXHG4D7e9w0IzKgXX+ZA3idviT5xwMjslX7PZQygGq9dSwsNeT8z9S+0Ggf0n4f5QuA5Wj4eVJvn7QsX9AXlAIIkprssexfpfcFfwt9IYcAguHaeGKd3Es/S/JPK6MT29daR7QoYwAdGzL1BfbvrZPDRtM6T+0Kc1SXD2BB4uS4Zflc6L5Q5gCCpDGxm5y8TF+SZNrsO1E1vVb2AILNTSHr5E6GEJ4NNSd3mF6KIYB/+gLLXGpf4NaY6ZWIAlgQft86+ViYvhBbAEEYV4exderfZ7mde19Y6cVN2TWnKsT+eoaQnw852ZlbHdEG0EEsF8j576uFYFk+WG4fMXmIPYCAXLtB7N+mLEdzufQFBLAojCXCeCJDX5ju6hwJASzRnKpY569l6gvd+r6AAFbqC/IttS90Y46EANbbmLs0yEMAS2AJ0oMmrAinoYrwRUxzFOHkRk9POZejPUwjhWHcYG1yF7G8KPQwrtzjaP8p5R+PcTR1PwBckCHNS5Ls72ZYcnBJkjQvymvcxFvmT0DSD7el9Asq641ZZQtg04Ezg9b5++lLDm5NXBPcnFv029MbMo7b0xUCSEKjdXKZnPxadb3HAxr/B48oKSM8pNdnATDO7xUDwAYeagFYlkfYwiYHhM06dBG2qylqAH4mqbdHlMsrP8KWZQULgLFpn04A7GeTupzt7auDwcatyiy2LgYAAAAAAAAAAAAAAAAwxfIbafMkPsYfXrYAAAAASUVORK5CYII=" />
+                                    </defs>
+                                </svg>
+                            </button></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex-container3-frame">
+                <div class="flex-container3-content">
+                    <figure>
+                        <img src="assets/img/persia.JPG" alt="">
+                        <figcaption>Adopsi</figcaption> <!-- Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket">Kucing Persia<p>Pusat Adopsi</p>
+                        <p><button>Adopsi Sekarang <svg width="32" height="35" viewBox="0 0 32 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="32" height="35" fill="url(#pattern0)" />
+                                    <defs>
+                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1"
+                                            height="1">
+                                            <use xlink:href="#image0_510_172"
+                                                transform="matrix(0.0104167 0 0 0.00952381 0 0.0428571)" />
+                                        </pattern>
+                                        <image id="image0_510_172" width="96" height="96"
+                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADEUlEQVR4nO3cO2sUURQH8Gsjm71nEjBYiOADEcFWlGT33F01FooaNHvPprAIKPoBbGz9EDYWgo9YKVr6BRQbHyBiLUJAfHfxEY3cZJUISWYSd/bMzv3/YKqE7Nn82Xtmz8xcYwAAAAAAAAAAAAAAAACgT1iWi8nYqWHtOqJFTh4Q+zcDjfZ+7VriDcDJPLGfJSfntOuJNwDXOdhfMXtlo3Zd8QbgZN46/7DqTm/Rri3aAGjh8DNJQ0a164s4AJknlq/Ecl67xngDcH+WJLmKvqAYAC0eTyp12ZZXHdGi7AGET8I7W28d1K452gBosS/8IJZL2nXHG4D7e9w0IzKgXX+ZA3idviT5xwMjslX7PZQygGq9dSwsNeT8z9S+0Ggf0n4f5QuA5Wj4eVJvn7QsX9AXlAIIkprssexfpfcFfwt9IYcAguHaeGKd3Es/S/JPK6MT29daR7QoYwAdGzL1BfbvrZPDRtM6T+0Kc1SXD2BB4uS4Zflc6L5Q5gCCpDGxm5y8TF+SZNrsO1E1vVb2AILNTSHr5E6GEJ4NNSd3mF6KIYB/+gLLXGpf4NaY6ZWIAlgQft86+ViYvhBbAEEYV4exderfZ7mde19Y6cVN2TWnKsT+eoaQnw852ZlbHdEG0EEsF8j576uFYFk+WG4fMXmIPYCAXLtB7N+mLEdzufQFBLAojCXCeCJDX5ju6hwJASzRnKpY569l6gvd+r6AAFbqC/IttS90Y46EANbbmLs0yEMAS2AJ0oMmrAinoYrwRUxzFOHkRk9POZejPUwjhWHcYG1yF7G8KPQwrtzjaP8p5R+PcTR1PwBckCHNS5Ls72ZYcnBJkjQvymvcxFvmT0DSD7el9Asq641ZZQtg04Ezg9b5++lLDm5NXBPcnFv029MbMo7b0xUCSEKjdXKZnPxadb3HAxr/B48oKSM8pNdnATDO7xUDwAYeagFYlkfYwiYHhM06dBG2qylqAH4mqbdHlMsrP8KWZQULgLFpn04A7GeTupzt7auDwcatyiy2LgYAAAAAAAAAAAAAAAAwxfIbafMkPsYfXrYAAAAASUVORK5CYII=" />
+                                    </defs>
+                                </svg>
+                            </button></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex-container3-frame">
+                <div class="flex-container3-content">
+                    <figure>
+                        <img src="assets/img/bichon.png" alt="">
+                        <figcaption>Adopsi</figcaption> <!-- Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket">Bichon Frise<p>Pemilik Sebelumnya</p>
+                        <p><button>Adopsi Sekarang <svg width="32" height="35" viewBox="0 0 32 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="32" height="35" fill="url(#pattern0)" />
+                                    <defs>
+                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1"
+                                            height="1">
+                                            <use xlink:href="#image0_510_172"
+                                                transform="matrix(0.0104167 0 0 0.00952381 0 0.0428571)" />
+                                        </pattern>
+                                        <image id="image0_510_172" width="96" height="96"
+                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADEUlEQVR4nO3cO2sUURQH8Gsjm71nEjBYiOADEcFWlGT33F01FooaNHvPprAIKPoBbGz9EDYWgo9YKVr6BRQbHyBiLUJAfHfxEY3cZJUISWYSd/bMzv3/YKqE7Nn82Xtmz8xcYwAAAAAAAAAAAAAAAACgT1iWi8nYqWHtOqJFTh4Q+zcDjfZ+7VriDcDJPLGfJSfntOuJNwDXOdhfMXtlo3Zd8QbgZN46/7DqTm/Rri3aAGjh8DNJQ0a164s4AJknlq/Ecl67xngDcH+WJLmKvqAYAC0eTyp12ZZXHdGi7AGET8I7W28d1K452gBosS/8IJZL2nXHG4D7e9w0IzKgXX+ZA3idviT5xwMjslX7PZQygGq9dSwsNeT8z9S+0Ggf0n4f5QuA5Wj4eVJvn7QsX9AXlAIIkprssexfpfcFfwt9IYcAguHaeGKd3Es/S/JPK6MT29daR7QoYwAdGzL1BfbvrZPDRtM6T+0Kc1SXD2BB4uS4Zflc6L5Q5gCCpDGxm5y8TF+SZNrsO1E1vVb2AILNTSHr5E6GEJ4NNSd3mF6KIYB/+gLLXGpf4NaY6ZWIAlgQft86+ViYvhBbAEEYV4exderfZ7mde19Y6cVN2TWnKsT+eoaQnw852ZlbHdEG0EEsF8j576uFYFk+WG4fMXmIPYCAXLtB7N+mLEdzufQFBLAojCXCeCJDX5ju6hwJASzRnKpY569l6gvd+r6AAFbqC/IttS90Y46EANbbmLs0yEMAS2AJ0oMmrAinoYrwRUxzFOHkRk9POZejPUwjhWHcYG1yF7G8KPQwrtzjaP8p5R+PcTR1PwBckCHNS5Ls72ZYcnBJkjQvymvcxFvmT0DSD7el9Asq641ZZQtg04Ezg9b5++lLDm5NXBPcnFv029MbMo7b0xUCSEKjdXKZnPxadb3HAxr/B48oKSM8pNdnATDO7xUDwAYeagFYlkfYwiYHhM06dBG2qylqAH4mqbdHlMsrP8KWZQULgLFpn04A7GeTupzt7auDwcatyiy2LgYAAAAAAAAAAAAAAAAwxfIbafMkPsYfXrYAAAAASUVORK5CYII=" />
+                                    </defs>
+                                </svg>
+                            </button></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex-container3-frame">
+                <div class="flex-container3-content">
+                    <figure>
+                        <img src="assets/img/bengal.jpeg" alt="">
+                        <figcaption>Adopsi</figcaption> <!-- Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket">Kucing Bengal<p>Pusat Adopsi</p>
+                        <p><button>Adopsi Sekarang <svg width="32" height="35" viewBox="0 0 32 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="32" height="35" fill="url(#pattern0)" />
+                                    <defs>
+                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1"
+                                            height="1">
+                                            <use xlink:href="#image0_510_172"
+                                                transform="matrix(0.0104167 0 0 0.00952381 0 0.0428571)" />
+                                        </pattern>
+                                        <image id="image0_510_172" width="96" height="96"
+                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADEUlEQVR4nO3cO2sUURQH8Gsjm71nEjBYiOADEcFWlGT33F01FooaNHvPprAIKPoBbGz9EDYWgo9YKVr6BRQbHyBiLUJAfHfxEY3cZJUISWYSd/bMzv3/YKqE7Nn82Xtmz8xcYwAAAAAAAAAAAAAAAACgT1iWi8nYqWHtOqJFTh4Q+zcDjfZ+7VriDcDJPLGfJSfntOuJNwDXOdhfMXtlo3Zd8QbgZN46/7DqTm/Rri3aAGjh8DNJQ0a164s4AJknlq/Ecl67xngDcH+WJLmKvqAYAC0eTyp12ZZXHdGi7AGET8I7W28d1K452gBosS/8IJZL2nXHG4D7e9w0IzKgXX+ZA3idviT5xwMjslX7PZQygGq9dSwsNeT8z9S+0Ggf0n4f5QuA5Wj4eVJvn7QsX9AXlAIIkprssexfpfcFfwt9IYcAguHaeGKd3Es/S/JPK6MT29daR7QoYwAdGzL1BfbvrZPDRtM6T+0Kc1SXD2BB4uS4Zflc6L5Q5gCCpDGxm5y8TF+SZNrsO1E1vVb2AILNTSHr5E6GEJ4NNSd3mF6KIYB/+gLLXGpf4NaY6ZWIAlgQft86+ViYvhBbAEEYV4exderfZ7mde19Y6cVN2TWnKsT+eoaQnw852ZlbHdEG0EEsF8j576uFYFk+WG4fMXmIPYCAXLtB7N+mLEdzufQFBLAojCXCeCJDX5ju6hwJASzRnKpY569l6gvd+r6AAFbqC/IttS90Y46EANbbmLs0yEMAS2AJ0oMmrAinoYrwRUxzFOHkRk9POZejPUwjhWHcYG1yF7G8KPQwrtzjaP8p5R+PcTR1PwBckCHNS5Ls72ZYcnBJkjQvymvcxFvmT0DSD7el9Asq641ZZQtg04Ezg9b5++lLDm5NXBPcnFv029MbMo7b0xUCSEKjdXKZnPxadb3HAxr/B48oKSM8pNdnATDO7xUDwAYeagFYlkfYwiYHhM06dBG2qylqAH4mqbdHlMsrP8KWZQULgLFpn04A7GeTupzt7auDwcatyiy2LgYAAAAAAAAAAAAAAAAwxfIbafMkPsYfXrYAAAAASUVORK5CYII=" />
+                                    </defs>
+                                </svg>
+                            </button></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex-container3-frame">
+                <div class="flex-container3-content">
+                    <figure>
+                        <img src="assets/img/beagle.jpg" alt="">
+                        <figcaption>Adopsi</figcaption> <!-- Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket">Anjing Beagle<p>Pusat Adopsi</p>
+                        <p><button>Adopsi Sekarang <svg width="32" height="35" viewBox="0 0 32 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="32" height="35" fill="url(#pattern0)" />
+                                    <defs>
+                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1"
+                                            height="1">
+                                            <use xlink:href="#image0_510_172"
+                                                transform="matrix(0.0104167 0 0 0.00952381 0 0.0428571)" />
+                                        </pattern>
+                                        <image id="image0_510_172" width="96" height="96"
+                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADEUlEQVR4nO3cO2sUURQH8Gsjm71nEjBYiOADEcFWlGT33F01FooaNHvPprAIKPoBbGz9EDYWgo9YKVr6BRQbHyBiLUJAfHfxEY3cZJUISWYSd/bMzv3/YKqE7Nn82Xtmz8xcYwAAAAAAAAAAAAAAAACgT1iWi8nYqWHtOqJFTh4Q+zcDjfZ+7VriDcDJPLGfJSfntOuJNwDXOdhfMXtlo3Zd8QbgZN46/7DqTm/Rri3aAGjh8DNJQ0a164s4AJknlq/Ecl67xngDcH+WJLmKvqAYAC0eTyp12ZZXHdGi7AGET8I7W28d1K452gBosS/8IJZL2nXHG4D7e9w0IzKgXX+ZA3idviT5xwMjslX7PZQygGq9dSwsNeT8z9S+0Ggf0n4f5QuA5Wj4eVJvn7QsX9AXlAIIkprssexfpfcFfwt9IYcAguHaeGKd3Es/S/JPK6MT29daR7QoYwAdGzL1BfbvrZPDRtM6T+0Kc1SXD2BB4uS4Zflc6L5Q5gCCpDGxm5y8TF+SZNrsO1E1vVb2AILNTSHr5E6GEJ4NNSd3mF6KIYB/+gLLXGpf4NaY6ZWIAlgQft86+ViYvhBbAEEYV4exderfZ7mde19Y6cVN2TWnKsT+eoaQnw852ZlbHdEG0EEsF8j576uFYFk+WG4fMXmIPYCAXLtB7N+mLEdzufQFBLAojCXCeCJDX5ju6hwJASzRnKpY569l6gvd+r6AAFbqC/IttS90Y46EANbbmLs0yEMAS2AJ0oMmrAinoYrwRUxzFOHkRk9POZejPUwjhWHcYG1yF7G8KPQwrtzjaP8p5R+PcTR1PwBckCHNS5Ls72ZYcnBJkjQvymvcxFvmT0DSD7el9Asq641ZZQtg04Ezg9b5++lLDm5NXBPcnFv029MbMo7b0xUCSEKjdXKZnPxadb3HAxr/B48oKSM8pNdnATDO7xUDwAYeagFYlkfYwiYHhM06dBG2qylqAH4mqbdHlMsrP8KWZQULgLFpn04A7GeTupzt7auDwcatyiy2LgYAAAAAAAAAAAAAAAAwxfIbafMkPsYfXrYAAAAASUVORK5CYII=" />
+                                    </defs>
+                                </svg>
+                            </button></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <section id="donasi"></section>
+        <div class="container2">
+            Pilihan Donasi
+        </div>
+        <div class="flex-container4">
+            <div class="flex-container4-frame">
+                <div class="flex-container4-content">
+                    <figure>
+                        <img src="assets/img/donasi1.png" alt="">
+                        <!-- <figcaption>Adopsi</figcaption> Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket2">Bantuan Pakan untuk Hewan Liar dan Terlantar<p>Teman Hewan<svg
+                                xmlns="http://www.w3.org/2000/svg" width="25" height="16" fill="currentColor"
+                                class="bi bi-patch-check-fill" viewBox="0 0 16 16" id="verif">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708" />
+                            </svg></p>
+                        <p>
+                        <div class="progress">
+                            <div class="left">Donasi Terkumpul</div>
+                            <div class="right">
+                                <span class="percent">79 %</span>
+                            </div>
+                        </div>
+
+                        <div class="progress2">
+                            <p>
+                            <div class="rupiah">
+                                <div class="left">Rp. 39.730.721</div>
+                                <div class="right">
+                                    <span class="target">Target : Rp50.000.000</span>
+                                </div>
+                            </div>
+                            </p>
+                        </div>
+                        <p>
+                        <div class="progress3"><a href="#donasi">Donasi sekarang</a></div>
+                        </p>
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex-container4-frame">
+                <div class="flex-container4-content">
+                    <figure>
+                        <img src="assets/img/donasi2.png" alt="">
+                        <!-- <figcaption>Adopsi</figcaption> Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket2">Bantu Hewan Liar dan Terlantar<p style="margin-top: 38px;">Teman Hewan<svg
+                                xmlns="http://www.w3.org/2000/svg" width="25" height="16" fill="currentColor"
+                                class="bi bi-patch-check-fill" viewBox="0 0 16 16" id="verif">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708" />
+                            </svg></p>
+                        <p>
+                        <div class="progress">
+                            <div class="left">Donasi Terkumpul</div>
+                            <div class="right">
+                                <span class="percent">100 %</span>
+                            </div>
+                        </div>
+
+                        <div class="progress2-2">
+                            <p>
+                            <div class="rupiah">
+                                <div class="left">Rp. 149.160.390</div>
+
+                            </div>
+                            </p>
+                        </div>
+                        <p>
+                        <div class="progress3"><a href="#donasi">Donasi sekarang</a></div>
+                        </p>
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex-container4-frame">
+                <div class="flex-container4-content">
+                    <figure>
+                        <img src="assets/img/donasi3.png" alt="">
+                        <!-- <figcaption>Adopsi</figcaption> Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket2">TRAGIS! Selamatkan 112 Kucing Bisa Bertahan Hidup<p>Yayasan Semangat Pemuda
+                            Mandiri
+                            Bersama<svg xmlns="http://www.w3.org/2000/svg" width="25" height="16" fill="currentColor"
+                                class="bi bi-patch-check-fill" viewBox="0 0 16 16" id="verif"
+                                style="margin-left: -0px;">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708" />
+                            </svg></p>
+                        <p>
+                        <div class="progress">
+                            <div class="left">Donasi Terkumpul</div>
+                            <div class="right">
+                                <span class="percent">4 %</span>
+                            </div>
+                        </div>
+
+                        <div class="progress2-3">
+                            <p>
+                            <div class="rupiah">
+                                <div class="left">Rp. 1.153.000</div>
+                                <div class="right">
+                                    <span class="target">Target : Rp. 31.000.000</span>
+                                </div>
+                            </div>
+                            </p>
+                        </div>
+                        <p>
+                        <div class="progress3"><a href="#donasi">Donasi sekarang</a></div>
+                        </p>
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex-container4-frame">
+                <div class="flex-container4-content">
+                    <figure>
+                        <img src="assets/img/donasi4.png" alt="">
+                        <!-- <figcaption>Adopsi</figcaption> Menambahkan keterangan di sini -->
+                    </figure>
+                    <div class="ket2">Butuh Makan! Ayo Bantu Ratusan Kucing Terlantar<p>Yayasan Rute Langkah Amanah<svg
+                                xmlns="http://www.w3.org/2000/svg" width="25" height="16" fill="currentColor"
+                                class="bi bi-patch-check-fill" viewBox="0 0 16 16" id="verif"
+                                style="margin-left: -0px;">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708" />
+                            </svg></p>
+                        <p>
+                        <div class="progress">
+                            <div class="left">Donasi Terkumpul</div>
+                            <div class="right">
+                                <span class="percent">43 %</span>
+                            </div>
+                        </div>
+
+                        <div class="progress2-4">
+                            <p>
+                            <div class="rupiah">
+                                <div class="left">Rp. 85.938.622</div>
+                                <div class="right">
+                                    <span class="target">Target : Rp. 200.000.000</span>
+                                </div>
+                            </div>
+                            </p>
+                        </div>
+                        <p>
+                        <div class="progress3"><a href="#donasi">Donasi sekarang</a></div>
+                        </p>
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Memuat file header -->
+        <!-- <div id="header-placeholder"></div> -->
+
+        <!-- Memuat file footer -->
+        <div id="footer-placeholder"></div>
+
+        <script>
+            function myFunction() {
+                // Tambahkan logika di sini untuk menangani klik tombol
+                console.log('Tombol ditekan!');
+            }
+
+            // Fetch navbar.html
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document
+                        .getElementById('navbar-placeholder')
+                        .innerHTML = data;
+
+                    // Set up dropdown functionality
+                    const dropdownToggle = document.querySelector('.dropdown-toggle');
+                    const dropdownContent = document.querySelector('.dropdown-content');
+
+                    dropdownToggle.addEventListener('click', function () {
+                        dropdownContent
+                            .classList
+                            .toggle('show');
+                    });
+
+                    window.addEventListener('click', function (event) {
+                        if (!event.target.matches('.dropdown-toggle')) {
+                            if (dropdownContent.classList.contains('show')) {
+                                dropdownContent
+                                    .classList
+                                    .remove('show');
+                            }
+                        }
+                    });
+                });
+
+            // Fetch header.html
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document
+                        .getElementById('header-placeholder')
+                        .innerHTML = data;
+                });
+
+            // Fetch footer.html
+            fetch('footer1.html')
+                .then(response => response.text())
+                .then(data => {
+                    document
+                        .getElementById('footer-placeholder')
+                        .innerHTML = data;
+                });
+        </script>
+</body>
+
+</html>
